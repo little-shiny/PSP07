@@ -1,6 +1,7 @@
 package com;
 
 import javax.crypto.*;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -60,7 +61,7 @@ public class Encrypter {
         cipher.init(Cipher.ENCRYPT_MODE, key);
 
         //Se cifra el mensaje
-        textEncrypted = cipher.doFinal(msg.getBytes());
+        textEncrypted = cipher.doFinal(msg.getBytes(StandardCharsets.UTF_8));
     }
 
     /**

@@ -17,12 +17,12 @@ public class Main {
 
 
         try{
-
-            generateKey()
+            // Se genera la clave de cifrado con la cadena que se pide (usuario + contraseña)
+            encrypter.generateKey(user + password);
             System.out.println("Clave generada correctamente");
-            mensajecifrado = cipherMessage(message);
-            -- guardar en fichero --
-                    print mensajecifrado.descifrar
+
+            // Cifrado del mensaje
+            encrypter.encryptMessage(message);
         }
 
     }
