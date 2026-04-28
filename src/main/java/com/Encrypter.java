@@ -13,6 +13,8 @@ public class Encrypter {
     String textToEncrypt;
     String textEncrypted;
 
+    SecretKey key;
+
     // --- Constructor ---
     public Encrypter(){
         this.seed = "";
@@ -21,18 +23,21 @@ public class Encrypter {
     }
 
     /**
-     * Método que genera la clave de cifrado a partir de la semilla proporcionada por parámetro
+     * Función que devuelve la SecretKey que genera la clave de cifrado a partir de la semilla proporcionada por
+     * parámetro
      * En este caso, se utiliza una clave AES simétrica de 128 bits
      * @param seed semilla a utilizar
+     * @return SecretKey con la clave
      */
-    public void generateKey(String seed){
+    public SecretKey generateKey(String seed){
         // SecureRandom genera claves para números aleatorios con semilla
         SecureRandom random = new SecureRandom(seed.getBytes());
 
         //KeyGenerator genera la clave AES de 128 bits
         KeyGenerator keyGen = KeyGenerator.getInstance("AES");
         keyGen.init(128, random); //128 bits + numero aleatorio con semilla
-        SecretKey key = keyGen.generateKey();
+        return keyGen.generateKey();
     }
+
 
 }
