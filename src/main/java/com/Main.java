@@ -21,7 +21,7 @@ public class Main {
         final String user = "myUser";
         final String password = "MyPassword";
         final String message = "Este es un mensaje secreto que quiero que no se pueda leer sin una clave de cifrado ";
-        final String fileName = "encryptedFile";
+        final String fileName = "fichero.cifrado";
 
         Encrypter encrypter = new Encrypter();
 
