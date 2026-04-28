@@ -20,11 +20,10 @@ public class Main {
     public static void main(String[] args) {
         final String user = "myUser";
         final String password = "MyPassword";
-        final String message = "This is the secret message for this task";
+        final String message = "Este es un mensaje secreto que quiero que no se pueda leer sin una clave de cifrado ";
         final String fileName = "encryptedFile";
 
         Encrypter encrypter = new Encrypter();
-
 
         try{
             // ---- Se genera la clave de cifrado con la cadena que se pide (usuario + contraseña)
@@ -46,6 +45,7 @@ public class Main {
             byte[] encryptedFileContent = fis.readAllBytes();
             fis.close();
 
+            // ---- Mostrar contenido del fichero descifrado
             System.out.println("Mensaje descifrado: " + new String(encrypter.decryptMessage(encryptedFileContent), StandardCharsets.UTF_8));
 
         } catch (NoSuchAlgorithmException e) {
